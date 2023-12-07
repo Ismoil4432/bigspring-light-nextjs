@@ -36,10 +36,9 @@ jobs:
           host: ${{ secrets.DEPLOY_SERVER_PROD_IP }}
           username: ${{ secrets.DEPLOY_SERVER_PROD_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          env:
-            PATH: $PATH:/root/.nvm/versions/node/v21.4.0/bin
           script: |
-            cd /root/sites/bigspring-light-nextjs
+            source ~/.bashrc
+            cd ~/sites/bigspring-light-nextjs
             git pull origin main
             yarn install
             yarn build
