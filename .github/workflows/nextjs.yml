@@ -13,16 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '21.x'
-
-      - name: Install yarn
-        run: npm install -g yarn
-
-      - name: Install yarn
-        run: corepack enable
 
       - name: Install dependencies
         run: yarn install
@@ -43,8 +33,4 @@ jobs:
             yarn install
             yarn build
             pm2 restart ismoildev-bigspring
-
-
-      - name: Clean up
-        if: always()
-        run: npm uninstall -g yarn
+            
