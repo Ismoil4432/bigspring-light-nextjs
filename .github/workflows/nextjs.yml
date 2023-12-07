@@ -39,9 +39,9 @@ jobs:
           script: |
             cd /root/sites/bigspring-light-nextjs
             git pull origin main
-            yarn install
-            yarn build
-            pm2 restart ismoildev-bigspring
+            /root/.nvm/versions/node/v21.4.0/bin/yarn install
+            /root/.nvm/versions/node/v21.4.0/bin/yarn build
+            /root/.nvm/versions/node/v21.4.0/bin/pm2 restart ismoildev-bigspring
 
       - name: Clean up
         if: always()
