@@ -37,12 +37,13 @@ jobs:
           username: ${{ secrets.DEPLOY_SERVER_PROD_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            source ~/.bashrc
+            export PATH=$PATH:~/.nvm/versions/node/v21.4.0/bin
             cd ~/sites/bigspring-light-nextjs
-            git pull origin main
-            yarn install
-            yarn build
-            pm2 restart ismoildev-bigspring
+            ~/.nvm/versions/node/v21.4.0/bin/git pull origin main
+            ~/.nvm/versions/node/v21.4.0/bin/yarn install
+            ~/.nvm/versions/node/v21.4.0/bin/yarn build
+            ~/.nvm/versions/node/v21.4.0/bin/pm2 restart ismoildev-bigspring
+
 
       - name: Clean up
         if: always()
