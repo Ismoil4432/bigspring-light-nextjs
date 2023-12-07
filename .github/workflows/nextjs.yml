@@ -13,7 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-
       - name: Install dependencies
         run: yarn install
 
@@ -27,7 +26,7 @@ jobs:
           username: ${{ secrets.DEPLOY_SERVER_PROD_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            export PATH=$PATH:~/.nvm/versions/node/v21.4.0/bin
+            source ~/.nvm/nvm.sh
             cd ~/sites/bigspring-light-nextjs
             git pull origin main
             yarn install
